@@ -1,0 +1,111 @@
+import java.util.*;
+public class Main{
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<String> arr = new ArrayList<String>();
+		ArrayList<Integer> arrr = new ArrayList<Integer>();
+		int z=1;
+		while(z==1) {
+		System.out.println("Enter your choice: ");
+		System.out.println("1. Register");
+		System.out.println("2. details");
+		System.out.println("3.Exit");
+		int n = sc.nextInt();
+		switch(n) {
+		case 1:
+			register(arr, arrr);
+			break;
+		case 2:
+			details(arr, arrr);
+			break;
+		case 3:
+			z=0;
+		}
+		}
+		System.out.println(arr+" "+arrr);
+	}
+	static void register(ArrayList ar, ArrayList I) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter your name: ");
+		String name = s.nextLine();
+		ar.add(name);
+		System.out.println("Enter your Country: ");
+		String coun = s.nextLine();
+		ar.add(coun);
+		System.out.println("Enter your emailId: ");
+		String email = s.nextLine();
+		ar.add(email);
+		System.out.println("Create your password: ");
+		String pass = s.nextLine();
+		ar.add(pass);
+		System.out.println("registered successfully...");
+		System.out.println("1.Login");
+		System.out.println("2.Exit");
+		int n = s.nextInt();
+		switch(n) {
+		case 1:
+			login(ar, I);
+			break;
+		case 2:
+			break;
+		default:
+			System.out.println("Invalid Input");
+		}
+	}
+	static void login(ArrayList ar, ArrayList I) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your emailId: ");
+		String email = sc.nextLine();
+		if(ar.contains(email)) {
+			System.out.println("Enter your password: ");
+			String pass = sc.nextLine();
+			if(ar.contains(pass)) {
+				System.out.println("Login successfull");
+				System.out.println("Enter your choice: ");
+				System.out.println("1.details");
+				System.out.println("2.Exit");
+				int n = sc.nextInt();
+				switch(n) {
+				case 1:
+					details(ar, I);
+					break;
+				case 2:
+					break;
+				default:
+					break;
+				}
+			}
+			else {
+				System.out.println("Invalid password");
+			}
+		}
+		else {
+			System.out.println("Invalid email");
+		}
+	}
+	
+	static void details(ArrayList ar, ArrayList I) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your email: ");
+		String email = sc.nextLine();
+		if(ar.contains(email)) {
+			System.out.println("Enter your 10th class marks: ");
+			int t = sc.nextInt();
+			I.add(t);
+			System.out.println("Enter your 12th class marks: ");
+			int t2 = sc.nextInt();
+			I.add(t2);
+			System.out.println("Enter your Graduation percentage: ");
+			int g = sc.nextInt();
+			I.add(g);
+			System.out.println("Expecting package(in lakhs): ");
+			int m = sc.nextInt();
+			I.add(m);
+		}
+		else {
+			System.out.println("Invalid email");
+		}
+	}
+	
+}
